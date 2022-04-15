@@ -1,10 +1,10 @@
-import { useEditor } from '@craftjs/core';
-import cx from 'classnames';
-import React, { useEffect } from 'react';
+import { useEditor } from "@craftjs/core";
+import cx from "classnames";
+import React, { useEffect } from "react";
 
-import { Header } from './Header';
-import { Sidebar } from './Sidebar';
-import { Toolbox } from './Toolbox';
+import { Header } from "./Header";
+import { Sidebar } from "./Sidebar";
+import { Toolbox } from "./Toolbox";
 
 export const Viewport = ({ children }) => {
   const {
@@ -15,41 +15,19 @@ export const Viewport = ({ children }) => {
     enabled: state.options.enabled,
   }));
 
-  // useEffect(() => {
-  //   if (!window) {
-  //     return;
-  //   }
-
-  //   // window.requestAnimationFrame(() => {
-  //   //   // Notify doc site
-  //   //   window.parent.postMessage(
-  //   //     {
-  //   //       LANDING_PAGE_LOADED: true,
-  //   //     },
-  //   //     '*'
-  //   //   );
-
-  //   //   setTimeout(() => {
-  //   //     setOptions((options) => {
-  //   //       options.enabled = true;
-  //   //     });
-  //   //   }, 200);
-  //   });
-  // }, [setOptions]);
-
   return (
     <div className="viewport">
       <div
-        className={cx(['flex h-full overflow-hidden flex-row w-full fixed'])}
+        className={cx(["flex h-full overflow-hidden flex-row w-full fixed"])}
       >
         <Toolbox />
         <div className="page-container flex flex-1 h-full flex-col">
           <Header />
           <div
             className={cx([
-              'craftjs-renderer flex-1 h-full w-full transition pb-8 overflow-auto',
+              "craftjs-renderer flex-1 h-full w-full transition pb-8 overflow-auto",
               {
-                'bg-renderer-gray': enabled,
+                "bg-renderer-gray": enabled,
               },
             ])}
             ref={(ref) => connectors.select(connectors.hover(ref, null), null)}
@@ -59,7 +37,7 @@ export const Viewport = ({ children }) => {
             </div>
             <div
               className={
-                'flex items-center justify-center w-full pt-6 text-xs text-light-gray-2'
+                "flex items-center justify-center w-full pt-6 text-xs text-light-gray-2"
               }
             >
               <a href="https://www.netlify.com">

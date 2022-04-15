@@ -1,7 +1,4 @@
-import App from './pages'
-import './App.css';
-import './styles/app.css';
-// import App1 from './pages/landing';
+import './styles/module.css';
+import App1 from './pages/landing';
 
-export default App;
-// export default App1;
+export default App1;

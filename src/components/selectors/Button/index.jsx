@@ -31,6 +31,7 @@ export const Button = (props) => {
   const { text, textComponent, color, ...otherProps } = props;
   return (
     <StyledButton
+      // 这个组件是可以拖动的 ref={ref => connect(drag(ref))}
       ref={connect}
       className={cx([
         'rounded w-full px-4 py-2',

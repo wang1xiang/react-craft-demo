@@ -10,7 +10,8 @@ import styled from 'styled-components';
 import { Button } from '../../selectors/Button';
 import { Container } from '../../selectors/Container/index.jsx';
 import { Text } from '../../selectors/Text';
-import { Video } from '../../selectors/Video';
+import { Custom1 } from '../../selectors/Custom1'
+import { Custom3 } from '../../selectors/Custom3'
 
 const ToolboxDiv = styled.div`
   transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
@@ -84,10 +85,17 @@ export const Toolbox = () => {
             </Item>
           </Tooltip>
         </div>
-        <div ref={(ref) => create(ref, <Video />)}>
-          <Tooltip title="Video" placement="right">
+        <div ref={(ref) => create(ref, <Custom1 />)}>
+          <Tooltip title="Custom1" placement="right">
             <Item className="m-2 pb-2 cursor-pointer block" move>
-              YoutubeSvg
+            Custom1
+            </Item>
+          </Tooltip>
+        </div>
+        <div ref={(ref) => create(ref, <Custom3 />)}>
+          <Tooltip title="Custom3" placement="right">
+            <Item className="m-2 pb-2 cursor-pointer block" move>
+            Custom3
             </Item>
           </Tooltip>
         </div>
