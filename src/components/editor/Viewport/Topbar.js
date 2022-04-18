@@ -13,6 +13,7 @@ import {
   Snackbar,
 } from '@material-ui/core';
 import copy from 'copy-to-clipboard';
+import { generateHtml } from '../../../utils/generateHtml';
 import lz from 'lzutf8';
 import React, { useState } from 'react';
 
@@ -33,42 +34,6 @@ export const Topbar = () => {
   return (
     <Box px={1} py={1} mt={3} mb={1} bgcolor="#cbe8e7">
       <Grid container alignItems="center">
-        <Grid item xs>
-          <FormControlLabel
-            className="enable-disable-toggle"
-            control={
-              <Switch
-                checked={enabled}
-                onChange={(_, value) =>
-                  actions.setOptions((options) => (options.enabled = value))
-                }
-              />
-            }
-            label="Enable"
-          />
-          <MaterialButton
-            className="copy-state-btn"
-            size="small"
-            variant="outlined"
-            color="secondary"
-            disabled={!canUndo}
-            onClick={() => actions.history.undo()}
-            style={{ marginRight: '10px' }}
-          >
-            Undo
-          </MaterialButton>
-          <MaterialButton
-            className="copy-state-btn"
-            size="small"
-            variant="outlined"
-            color="secondary"
-            disabled={!canRedo}
-            onClick={() => actions.history.redo()}
-            style={{ marginRight: '10px' }}
-          >
-            Redo
-          </MaterialButton>
-        </Grid>
         <Grid item>
           <MaterialButton
             className="copy-state-btn"
@@ -76,13 +41,18 @@ export const Topbar = () => {
             variant="outlined"
             color="secondary"
             onClick={() => {
+              debugger
+              console.log(query)
               const json = query.serialize();
+              console.log(json);
+              const html = generateHtml(JSON.parse(json))
+              console.log(html)
               copy(lz.encodeBase64(lz.compress(json)));
               setSnackbarMessage('State copied to clipboard');
             }}
             style={{ marginRight: '10px' }}
           >
-            Copy current state
+            保存
           </MaterialButton>
           <MaterialButton
             className="load-state-btn"

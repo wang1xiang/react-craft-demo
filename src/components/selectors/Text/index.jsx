@@ -21,7 +21,8 @@ export const Text = ({
     enabled: state.options.enabled,
   }));
   return (
-    <ContentEditable
+    <div className="flex items-center w-full h-full">
+      <ContentEditable
       innerRef={connect}
       html={text} // innerHTML of the editable div
       disabled={!enabled}
@@ -39,6 +40,7 @@ export const Text = ({
         textAlign,
       }}
     />
+    </div>
   );
 };
 

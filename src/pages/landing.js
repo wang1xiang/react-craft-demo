@@ -1,13 +1,25 @@
-import { Editor, Frame, Element } from "@craftjs/core";
-import React from "react";
+import { Editor, Frame } from "@craftjs/core";
+import React, { useState, useEffect } from "react";
 
 import { Viewport, RenderNode } from "../components/editor";
 import { Container, Text } from "../components/selectors";
 import { Button } from "../components/selectors/Button";
+import { Image } from "../components/selectors/Image";
 import { Custom1, OnlyButtons } from "../components/selectors/Custom1";
 import { Custom3, Custom3BtnDrop } from "../components/selectors/Custom3";
+import { Custom4 } from "../components/selectors/Custom4";
+import { TextComponent } from '../components/selectors/TextComponent'
+import mockData from '../utils/data1.json';
 
 function App() {
+
+  const [json, setJson] = useState(null);
+  useEffect(() => {
+    console.log(mockData)
+    // const json = lz.decompress(lz.decodeBase64(stateToLoad));
+    setJson(mockData);
+  }, []);
+  if (!json) return false;
   return (
     <div className="h-full h-screen">
      {/* 这是编辑器的区域，resolve是会用到的组件，需要在这里申明一下 */}
@@ -18,326 +30,20 @@ function App() {
           Custom1,
           Custom3,
           Custom3BtnDrop,
+          Custom4,
           OnlyButtons,
           Button,
+          TextComponent,
+          Image
         }}
-        enabled={false}
+        // 控制是否可编辑
+        enabled={true}
+        // 选中组件时候 展示组件名称及操作
         onRender={RenderNode}
       >
         <Viewport>
-          {/* 编辑区域需要包裹在这个元素里面 */}
-          <Frame>
-            <Element
-              canvas
-              is={Container}
-              width="800px"
-              height="auto"
-              background={{ r: 255, g: 255, b: 255, a: 1 }}
-              padding={["40", "40", "40", "40"]}
-              custom={{ displayName: "App" }}
-            >
-              {/* 生成一个div元素，是一个canvas节点，可以编辑*/}
-              <Element
-                canvas
-                is={Container}
-                flexDirection="row"
-                width="100%"
-                height="auto"
-                padding={["40", "40", "40", "40"]}
-                margin={["0", "0", "40", "0"]}
-                custom={{ displayName: "Introduction" }}
-              >
-                <Element
-                  canvas
-                  is={Container}
-                  width="40%"
-                  height="100%"
-                  padding={["0", "20", "0", "20"]}
-                  custom={{ displayName: "Heading" }}
-                >
-                  <Text
-                    fontSize="23"
-                    fontWeight="400"
-                    text="Craft.js is a React framework for building powerful &amp; feature-rich drag-n-drop page editors."
-                  ></Text>
-                </Element>
-                <Element
-                  canvas
-                  is={Container}
-                  width="60%"
-                  height="100%"
-                  padding={["0", "20", "0", "20"]}
-                  custom={{ displayName: "Description" }}
-                >
-                  <Text
-                    fontSize="14"
-                    fontWeight="400"
-                    text="Everything you see here, including the editor, itself is made of React components. Craft.js comes only with the building blocks for a page editor; it provides a drag-n-drop system and handles the way user components should be rendered, updated and moved, among other things. <br /> <br /> You control the way your editor looks and behave."
-                  ></Text>
-                </Element>
-              </Element>
-
-              <Element
-                canvas
-                is={Container}
-                background={{ r: 39, g: 41, b: 41, a: 1 }}
-                flexDirection="column"
-                width="100%"
-                height="auto"
-                padding={["40", "40", "40", "40"]}
-                margin={["0", "0", "40", "0"]}
-                custom={{ displayName: "ComplexSection" }}
-              >
-                <Element
-                  canvas
-                  background={{
-                    r: 76,
-                    g: 78,
-                    b: 78,
-                    a: 0,
-                  }}
-                  is={Container}
-                  flexDirection="row"
-                  margin={["0", "0", "0", "0"]}
-                  width="100%"
-                  height="auto"
-                  alignItems="center"
-                  custom={{ displayName: "Wrapper" }}
-                >
-                  <Element
-                    canvas
-                    background={{
-                      r: 0,
-                      g: 0,
-                      b: 0,
-                      a: 0,
-                    }}
-                    is={Container}
-                    alignItems="center"
-                    padding={["0", "0", "0", "0"]}
-                    flexDirection="row"
-                    width="350px"
-                    height="250px"
-                    custom={{ displayName: "Square" }}
-                  >
-                    <Element
-                      canvas
-                      is={Container}
-                      justifyContent="center"
-                      alignItems="center"
-                      background={{
-                        r: 76,
-                        g: 78,
-                        b: 78,
-                        a: 1,
-                      }}
-                      shadow={25}
-                      width="90%"
-                      height="90%"
-                      padding={["10", "20", "10", "20"]}
-                      custom={{ displayName: "Outer" }}
-                    >
-                      <Element
-                        canvas
-                        is={Container}
-                        justifyContent="center"
-                        alignItems="center"
-                        background={{
-                          r: 76,
-                          g: 78,
-                          b: 78,
-                          a: 1,
-                        }}
-                        shadow={50}
-                        width="80%"
-                        height="80%"
-                        padding={["10", "20", "10", "20"]}
-                        custom={{ displayName: "Middle" }}
-                      >
-                        <Element
-                          canvas
-                          is={Container}
-                          justifyContent="center"
-                          alignItems="center"
-                          background={{
-                            r: 76,
-                            g: 78,
-                            b: 78,
-                            a: 1,
-                          }}
-                          shadow={50}
-                          width="60%"
-                          height="60%"
-                          padding={["10", "20", "10", "20"]}
-                          custom={{ displayName: "Inner" }}
-                        />
-                      </Element>
-                    </Element>
-                  </Element>
-                  <Element
-                    canvas
-                    background={{
-                      r: 0,
-                      g: 0,
-                      b: 0,
-                      a: 0,
-                    }}
-                    is={Container}
-                    padding={["0", "0", "0", "20"]}
-                    flexDirection="column"
-                    width="55%"
-                    height="100%"
-                    fillSpace="yes"
-                    custom={{ displayName: "Content" }}
-                  >
-                    <Text
-                      color={{
-                        r: "255",
-                        g: "255",
-                        b: "255",
-                        a: "1",
-                      }}
-                      margin={["0", "0", "18", "0"]}
-                      fontSize="20"
-                      text="Design complex components"
-                    ></Text>
-                    <Text
-                      color={{
-                        r: "255",
-                        g: "255",
-                        b: "255",
-                        a: "0.8",
-                      }}
-                      fontSize="14"
-                      fontWeight="400"
-                      text="You can define areas within your React component which users can drop other components into. <br/><br />You can even design how the component should be edited — content editable, drag to resize, have inputs on toolbars — anything really."
-                    ></Text>
-                  </Element>
-                </Element>
-              </Element>
-              <Element
-                canvas
-                is={Container}
-                background={{
-                  r: 234,
-                  g: 245,
-                  b: 245,
-                  a: 1,
-                }}
-                flexDirection="column"
-                width="100%"
-                height="auto"
-                padding={["40", "40", "40", "40"]}
-                margin={["0", "0", "40", "0"]}
-                custom={{ displayName: "Programmatic" }}
-              >
-                <Element
-                  canvas
-                  background={{
-                    r: 76,
-                    g: 78,
-                    b: 78,
-                    a: 0,
-                  }}
-                  is={Container}
-                  flexDirection="column"
-                  margin={["0,", "0", "20", "0"]}
-                  width="100%"
-                  height="auto"
-                  custom={{ displayName: "Heading" }}
-                >
-                  <Text
-                    color={{
-                      r: "46",
-                      g: "47",
-                      b: "47",
-                      a: "1",
-                    }}
-                    fontSize="23"
-                    text="Programmatic drag &amp; drop"
-                  ></Text>
-                  <Text
-                    fontSize="14"
-                    fontWeight="400"
-                    text="Govern what goes in and out of your components"
-                  ></Text>
-                </Element>
-                <Element
-                  canvas
-                  background={{
-                    r: 76,
-                    g: 78,
-                    b: 78,
-                    a: 0,
-                  }}
-                  is={Container}
-                  flexDirection="row"
-                  margin={["30", "0", "0", "0"]}
-                  width="100%"
-                  height="auto"
-                  custom={{ displayName: "Content" }}
-                >
-                  <Element
-                    canvas
-                    background={{
-                      r: 0,
-                      g: 0,
-                      b: 0,
-                      a: 0,
-                    }}
-                    is={Container}
-                    padding={["0", "20", "0", "0"]}
-                    flexDirection="row"
-                    width="45%"
-                    custom={{ displayName: "Left" }}
-                  >
-                    <Custom1
-                      background={{
-                        r: 119,
-                        g: 219,
-                        b: 165,
-                        a: 1,
-                      }}
-                      height="auto"
-                      width="100%"
-                      padding={["20", "20", "20", "20"]}
-                      margin={["0", "0", "0", "0"]}
-                      shadow={40}
-                    />
-                  </Element>
-                  <Element
-                    canvas
-                    background={{
-                      r: 0,
-                      g: 0,
-                      b: 0,
-                      a: 0,
-                    }}
-                    is={Container}
-                    padding={["0", "0", "0", "20"]}
-                    flexDirection="column"
-                    width="55%"
-                    custom={{ displayName: "Right" }}
-                  >
-                    <Custom3
-                      background={{
-                        r: 134,
-                        g: 187,
-                        b: 201,
-                        a: 1,
-                      }}
-                      height="auto"
-                      width="100%"
-                      padding={["20", "20", "20", "20"]}
-                      margin={["20", "0", "0", "0"]}
-                      shadow={40}
-                      flexDirection="column"
-                    />
-                  </Element>
-                </Element>
-              </Element>
-            </Element>
-          </Frame>
+          {/* 后台请求数据 */}
+          <Frame data={JSON.stringify(json)} />
         </Viewport>
       </Editor>
     </div>

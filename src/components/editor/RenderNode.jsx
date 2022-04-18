@@ -3,11 +3,7 @@ import { ROOT_NODE } from '@craftjs/utils';
 import React, { useEffect, useRef, useCallback } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-
-// import ArrowUp from '../../static/icons/arrow-up.svg';
-// import Delete from '../../static/icons/delete.svg';
-// import Move from '../../static/icons/move.svg';
-
+import { ArrowUpOutlined, DeleteOutlined, DragOutlined  } from '@ant-design/icons';
 const IndicatorDiv = styled.div`
   height: 30px;
   margin-top: -29px;
@@ -99,7 +95,7 @@ export const RenderNode = ({ render }) => {
         ? ReactDOM.createPortal(
             <IndicatorDiv
               ref={currentRef}
-              className="px-2 py-2 text-white bg-primary fixed flex items-center"
+              className="text-white px-2 py-2 text-white bg-primary fixed flex items-center"
               style={{
                 left: getPos(dom).left,
                 top: getPos(dom).top,
@@ -109,7 +105,7 @@ export const RenderNode = ({ render }) => {
               <h2 className="flex-1 mr-4">{name}</h2>
               {moveable ? (
                 <Btn className="mr-2 cursor-move" ref={drag}>
-                  <span>Move</span>
+                  <DragOutlined/>
                 </Btn>
               ) : null}
               {id !== ROOT_NODE && (
@@ -119,7 +115,7 @@ export const RenderNode = ({ render }) => {
                     actions.selectNode(parent);
                   }}
                 >
-                  <span>ArrowUp</span>
+                  <ArrowUpOutlined />
                 </Btn>
               )}
               {deletable ? (
@@ -130,7 +126,7 @@ export const RenderNode = ({ render }) => {
                     actions.delete(id);
                   }}
                 >
-                  <span>Delete</span>
+                  <DeleteOutlined />
                 </Btn>
               ) : null}
             </IndicatorDiv>,

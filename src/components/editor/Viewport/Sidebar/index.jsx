@@ -123,7 +123,7 @@ export const Sidebar = () => {
           onChange={(val) => setLayerVisible(val)}
         >
           <div className="">
-            <Layers expandRootOnLoad={true} />
+            {/* <Layers expandRootOnLoad={true} /> */}
           </div>
         </SidebarItem>
         <CarbonAdsContainer>

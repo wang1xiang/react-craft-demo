@@ -1,6 +1,6 @@
 import { useEditor } from "@craftjs/core";
 import cx from "classnames";
-import React, { useEffect } from "react";
+import React, { useRef } from "react";
 
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
@@ -15,8 +15,11 @@ export const Viewport = ({ children }) => {
     enabled: state.options.enabled,
   }));
 
+  const ref = useRef(null);
+  const html = ref.current?.firstChild?.firstChild?.outerHTML;
+  console.log(html)
   return (
-    <div className="viewport">
+    <div ref={ref} className="viewport">
       <div
         className={cx(["flex h-full overflow-hidden flex-row w-full fixed"])}
       >

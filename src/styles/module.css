@@ -90,7 +90,7 @@
 }
 
 .bg-white {
-  background-color:rgb(255 255 255/var(--tw-bg-opacity));
+  background-color:rgb(255, 255, 255);
 }
 
 .pb-2 {
@@ -101,6 +101,9 @@
 }
 .m-2 {
   margin: 0.5rem;
+}
+.px-2 {
+  
 }
 .px-4 {
   padding-left: 1rem;
@@ -113,15 +116,34 @@
   padding-bottom: 2rem;
 }
 .bg-renderer-gray {
-  --tw-bg-opacity: 1;
-  background-color: rgb(224 224 224/var(--tw-bg-opacity));
+  background-color: rgb(224,224,224);
+}
+.bg-primary {
+  background-color: rgb(38,128,235);
 }
 
 .text-light-gray-2 {
-  --tw-text-opacity: 1;
-  color: rgb(128 128 128/var(--tw-text-opacity));
+  color: rgb(128,128, 128);
 }
 .text-xs {
   font-size: .75rem;
   line-height: 1rem;
+}
+.text-white {
+  color: rgb(255, 255, 255);
+}
+
+.component-selected {
+  position: relative;
+}
+.component-selected::after {
+  content: " ";
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+  border: 1px dashed rgb(38, 128, 235)
 }

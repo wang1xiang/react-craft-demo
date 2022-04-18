@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ContainerSettings } from './ContainerSettings';
+import { ContainerSettings } from '../Container/ContainerSettings';
 
 import { Resizer } from '../Resizer.jsx';
 
@@ -20,7 +20,7 @@ const defaultProps = {
   height: 'auto',
 };
 
-export const Container = (props) => {
+export const ContainerWithPadding = (props) => {
   props = {
     ...defaultProps,
     ...props,
@@ -64,8 +64,8 @@ export const Container = (props) => {
   );
 };
 
-Container.craft = {
-  displayName: 'Container',
+ContainerWithPadding.craft = {
+  displayName: 'ContainerWithPadding',
   props: defaultProps,
   rules: {
     canDrag: () => true,

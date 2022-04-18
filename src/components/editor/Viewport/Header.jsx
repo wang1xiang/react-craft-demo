@@ -1,5 +1,6 @@
 import { useEditor } from '@craftjs/core';
 import { Tooltip } from '@material-ui/core';
+import { Topbar } from './Topbar';
 import cx from 'classnames';
 import React from 'react';
 import styled from 'styled-components';
@@ -73,6 +74,7 @@ export const Header = () => {
                 RedoSvg
               </Item>
             </Tooltip>
+            <Topbar />
           </div>
         )}
         <div className="flex">

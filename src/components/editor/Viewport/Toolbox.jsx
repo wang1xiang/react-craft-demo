@@ -8,10 +8,13 @@ import styled from 'styled-components';
 // import TypeSvg from '../../../static/icons/toolbox/text.svg';
 // import YoutubeSvg from '../../../static/icons/toolbox/video-line.svg';
 import { Button } from '../../selectors/Button';
-import { Container } from '../../selectors/Container/index.jsx';
+import { Container } from '../../selectors/Container';
 import { Text } from '../../selectors/Text';
 import { Custom1 } from '../../selectors/Custom1'
+import { Image } from '../../selectors/Image';
 import { Custom3 } from '../../selectors/Custom3'
+import { Custom4 } from '../../selectors/Custom4'
+import { TextComponent } from '../../selectors/TextComponent';
 
 const ToolboxDiv = styled.div`
   transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
@@ -92,10 +95,31 @@ export const Toolbox = () => {
             </Item>
           </Tooltip>
         </div>
+        <div ref={(ref) => create(ref, <Image />)}>
+          <Tooltip title="image" placement="right">
+            <Item className="m-2 pb-2 cursor-pointer block" move>
+            image
+            </Item>
+          </Tooltip>
+        </div>
         <div ref={(ref) => create(ref, <Custom3 />)}>
           <Tooltip title="Custom3" placement="right">
             <Item className="m-2 pb-2 cursor-pointer block" move>
             Custom3
+            </Item>
+          </Tooltip>
+        </div>
+        <div ref={(ref) => create(ref, <Custom4 />)}>
+          <Tooltip title="Custom4" placement="right">
+            <Item className="m-2 pb-2 cursor-pointer block" move>
+            Custom4
+            </Item>
+          </Tooltip>
+        </div>
+        <div ref={(ref) => create(ref, <TextComponent />)}>
+          <Tooltip title="TextComponent" placement="right">
+            <Item className="m-2 pb-2 cursor-pointer block" move>
+            TextComponent
             </Item>
           </Tooltip>
         </div>
