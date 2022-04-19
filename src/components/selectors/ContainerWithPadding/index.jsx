@@ -13,7 +13,6 @@ const defaultProps = {
   margin: ['0', '0', '0', '0'],
   background: { r: 255, g: 255, b: 255, a: 1 },
   color: { r: 0, g: 0, b: 0, a: 1 },
-  zIndex: 0,
   shadow: 0,
   radius: 0,
   width: '100%',
@@ -36,7 +35,6 @@ export const ContainerWithPadding = (props) => {
     margin,
     shadow,
     radius,
-    zIndex,
     children,
   } = props;
   return (
@@ -46,7 +44,6 @@ export const ContainerWithPadding = (props) => {
         justifyContent,
         flexDirection,
         alignItems,
-        zIndex,
         background: `rgba(${Object.values(background)})`,
         color: `rgba(${Object.values(color)})`,
         padding: `${padding[0]}px ${padding[1]}px ${padding[2]}px ${padding[3]}px`,
@@ -68,7 +65,14 @@ ContainerWithPadding.craft = {
   displayName: 'ContainerWithPadding',
   props: defaultProps,
   rules: {
+    // 是否可拖拽
     canDrag: () => true,
+    // 是否可将节点放置在其中
+    canDrop: () => true,
+    // 是否可拖入
+    canMoveIn: () => true,
+    // 是否可脱出
+    canMoveOut: () => true
   },
   related: {
     toolbar: ContainerSettings,

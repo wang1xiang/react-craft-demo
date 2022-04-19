@@ -23,7 +23,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 0,
           "radius": 0,
           "width": "800px",
@@ -61,7 +60,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 0,
           "radius": 0,
           "width": "100%",
@@ -100,7 +98,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 0,
           "radius": 0,
           "width": "40%",
@@ -165,7 +162,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 0,
           "radius": 0,
           "width": "60%",
@@ -230,7 +226,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 0,
           "radius": 0,
           "width": "100%",
@@ -269,7 +264,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 0,
           "radius": 0,
           "width": "100%",
@@ -308,7 +302,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 0,
           "radius": 0,
           "width": "350px",
@@ -347,7 +340,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 25,
           "radius": 0,
           "width": "90%",
@@ -386,7 +378,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 50,
           "radius": 0,
           "width": "80%",
@@ -425,7 +416,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 50,
           "radius": 0,
           "width": "60%",
@@ -464,7 +454,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 0,
           "radius": 0,
           "width": "55%",
@@ -555,7 +544,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 0,
           "radius": 0,
           "width": "100%",
@@ -594,7 +582,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 0,
           "radius": 0,
           "width": "100%",
@@ -685,7 +672,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 0,
           "radius": 0,
           "width": "100%",
@@ -724,7 +710,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 0,
           "radius": 0,
           "width": "45%",
@@ -763,7 +748,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 40,
           "radius": 0,
           "width": "100%",
@@ -802,7 +786,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 0,
           "radius": 0,
           "width": "55%",
@@ -841,7 +824,6 @@
               "b": 0,
               "a": 1
           },
-          "zIndex": 0,
           "shadow": 40,
           "radius": 0,
           "width": "100%",
