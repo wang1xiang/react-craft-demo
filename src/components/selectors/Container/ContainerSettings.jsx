@@ -120,6 +120,20 @@ export const ContainerSettings = () => {
           <ToolbarRadio value="flex-end" label="Flex end" />
         </ToolbarItem>
       </ToolbarSection>
+      <ToolbarSection
+        title="backgroundImage"
+        props={['backgroundImage']}
+        summary={({ backgroundImage }) => {
+          return backgroundImage;
+        }}
+      >
+        <ToolbarItem
+          full={true}
+          propKey="backgroundImage"
+          type="input"
+          label="backgroundImage"
+        />
+      </ToolbarSection>
     </React.Fragment>
   );
 };

@@ -36,6 +36,7 @@ export const Container = (props) => {
     shadow,
     radius,
     children,
+    backgroundImage
   } = props;
   return (
     <Resizer
@@ -44,6 +45,7 @@ export const Container = (props) => {
         justifyContent,
         flexDirection,
         alignItems,
+        backgroundImage: `url(${backgroundImage})`,
         background: `rgba(${Object.values(background)})`,
         color: `rgba(${Object.values(color)})`,
         padding: `${padding[0]}px ${padding[1]}px ${padding[2]}px ${padding[3]}px`,

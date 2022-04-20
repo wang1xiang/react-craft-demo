@@ -89,16 +89,19 @@ export const Resizer = ({ propKey, children, ...props }) => {
     fillSpace,
     nodeWidth,
     nodeHeight,
+    maxWidth,
     parent,
     active,
     inNodeContext,
   } = useNode((node) => ({
+    maxWidth: node.dom,
     parent: node.data.parent,
     active: node.events.selected,
     nodeWidth: node.data.props[propKey.width],
     nodeHeight: node.data.props[propKey.height],
     fillSpace: node.data.props.fillSpace,
   }));
+  console.log(maxWidth?.parent)
 
   const { isRootNode, parentDirection } = useEditor((state, query) => {
     return {
@@ -207,6 +210,9 @@ export const Resizer = ({ propKey, children, ...props }) => {
         }
       }}
       size={internalDimensions}
+      minWidth={80}
+      // maxWidth={nodeWidth}
+      minHeight={20}
       onResizeStart={(e) => {
         updateInternalDimensionsInPx();
         e.preventDefault();
@@ -247,7 +253,7 @@ export const Resizer = ({ propKey, children, ...props }) => {
         setProp((prop) => {
           prop[propKey.width] = width;
           prop[propKey.height] = height;
-        }, 500);
+        }, 200);
       }}
       onResizeStop={() => {
         isResizing.current = false;
